@@ -1,0 +1,36 @@
+{
+  "name": "imanghafoori/laravel-responder",
+  "description": "A minimal yet powerful package to give you opportunity to refactor your controllers.",
+  "keywords": ["laravel","laravel5-package","PHP","laravel5"],
+  "type": "project",
+  "license": "MIT",
+  "homepage": "https://github.com/imanghafoori1/laravel-responder",
+  "authors": [
+    {
+      "name": "Iman Ghafoori",
+      "email": "imanghafoori1@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.6.0"
+  },
+  "autoload-dev": {
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Imanghafoori\\Responder\\": "src"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Imanghafoori\\Responder\\LaravelResponderServiceProvider"
+      ]
+    }
+  }
+}
