@@ -1,5 +1,9 @@
 # Tell, don't ask principle in your laravel controllers
 
+## What this package is good for ?
+
+**This package helps you refactor your controllers code by bringing The law of demter into it.**
+
 
 ### Installation:
 
@@ -7,9 +11,7 @@
 composer require imanghafoori/laravel-responder
 `
 
-### What this package is good for ?
 
-**This package helps you refactor your controllers code by bringing The law of demter into it.**
 
 
 
@@ -69,38 +71,11 @@ class LoginController
         $this->handleInvalidCredentials();
         
     }
+    
+    
+    ...
 
-    private function validateRequest()
-    {
-        $validator = Validator::make(request()->all(), [
-            'email' => 'required|max:255||string',
-            'password' => 'required|confirmed||string',
-        ]);
-        if ($validator->fails()) {
-            sendAndTerminate(redirect('/some-where')->withErrors($validator)->withInput());
-        }
-    }
 
-    private function throttleAttempts()
-    {
-        if ($this->hasTooManyLoginAttempts(request())) {
-            $this->fireLockoutEvent(request());
-            sendAndTerminate($this->lockoutResponse(request()));
-        }
-    }
-
-    private function handleValidCredentials()
-    {
-        if ($this->attemptLogin(request())) {
-            sendAndTerminate($this->loginResponse(request()));
-        }
-    }
-
-    private function handleInvalidCredentials()
-    {
-        $this->incrementLoginAttempts(request());
-        sendAndTerminate($this->failedLoginResponse(request()));
-    }
     
 }
 ```
