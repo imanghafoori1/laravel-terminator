@@ -50,10 +50,16 @@ class AuthController {
 }
 
 ```
+#### Problem :
+
 With the current approach, this is as much as we can refactor at best.
 These if blocks can not be easily extracted out.
-Why ? because the controllers are asking for response they are not telling.
-but with this technique you can write it like this:
+
+Why ? because the controllers are asking for response, they are not telling what to do.
+
+#### Solution : 
+
+With this technique you can write it like this:
 
 ```php
 
@@ -148,10 +154,8 @@ Let me mention that The "sendAndTerminate" helper function (like other laravel h
 
 ### More of the Author
 
-**If you are looking for more new ways of recatoring yor controllers visit the repo below**
+**If you are looking for more new ways of recatoring your controllers visit the repo below**
 
 https://github.com/imanghafoori1/laravel-widgetize
 
-https://github.com/imanghafoori1/laravel-widgetize
 
-https://github.com/imanghafoori1/laravel-widgetize
