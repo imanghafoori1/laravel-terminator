@@ -3,9 +3,8 @@
 namespace Imanghafoori\Responder\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use Imanghafoori\Responder\Responder;
 
-class ResponderFacade extends Facade
+class Responder extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -14,6 +13,6 @@ class ResponderFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return Responder::class;
+        return 'Imanghafoori\Responder\Responder';
     }
 }

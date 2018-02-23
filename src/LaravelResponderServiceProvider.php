@@ -10,7 +10,7 @@ class LaravelResponderServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(Responder::class, function () {
+        $this->app->singleton('Imanghafoori\Responder\Responder', function () {
             return new Responder();
         });
     }
