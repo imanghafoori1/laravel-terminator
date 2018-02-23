@@ -7,8 +7,10 @@
 composer require imanghafoori/laravel-responder
 `
 
+### What this package is good for ?
 
-This package helps you refactor your controllers code by bringing The law of demter into it.
+**This package helps you refactor your controllers code by bringing The law of demter into it.**
+
 
 
 The fact that we have to "return" a response from controllers prevents framework users from refactoring their controller code beyond a certain point.
