@@ -1,10 +1,14 @@
-# Tell, don't ask principle in your laravel controllers.
-installation:
+# Tell, don't ask principle in your laravel controllers
+
+
+### Installation:
+
 `
 composer require imanghafoori/laravel-responder
 `
 
-This package helps you refactor your controllers code by 
+
+This package helps you refactor your controllers code by bringing The law of demter into it.
 
 
 The fact that we have to "return" a response from controllers prevents framework users from refactoring their controller code beyond a certain point.
