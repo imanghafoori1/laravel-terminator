@@ -2,7 +2,8 @@
 
 ## What this package is good for ?
 
-**This package helps you refactor your controllers code by bringing The law of demter into it.**
+**This package helps you refactor your controllers code by bringing The "law of demter" into it.**
+
 
 
 ### Installation:
@@ -10,8 +11,6 @@
 `
 composer require imanghafoori/laravel-responder
 `
-
-
 
 
 
@@ -54,9 +53,53 @@ class AuthController {
 With the current approach, this is as much as we can refactor at best.
 These if blocks can not be easily extracted out.
 Why ? because the controllers are asking for response they are not telling.
+but with this technique you can write it like this:
 
+```php
 
-Ideally we want to extract smaller methods and reach some thing like:
+use \Imanghafoori\Responder\Facades\Responder;
+
+class AuthController {
+    public function login(Request $request)
+    {
+           // 1 - Validate Request
+           $validator = Validator::make($request->all(), [
+              'email' => 'required|max:255||string',
+              'password' => 'required|confirmed||string',
+          ]);
+          if ($validator->fails()) {
+               $response = redirect('/some-where')->withErrors($validator)->withInput();
+               sendAndTerminate($response);
+          }
+          
+         
+          // 2 - throttle Attempts
+          if ($this->hasTooManyLoginAttempts($request)) {
+              $this->fireLockoutEvent($request);
+              $response = $this->sendLockoutResponse($request);
+              sendAndTerminate($response);
+          }
+          
+         
+          // 3 - handle valid Credentials
+          if ($this->attemptLogin($request)) {
+               $response = $this->sendLoginResponse($request);
+               sendAndTerminate($response);
+          }
+          
+
+          // 4 - handle invalid Credentials
+          $this->incrementLoginAttempts($request);
+          $response = $this->sendFailedLoginResponse($request) 
+         
+          Responder::sendAndTerminate($response);  // or use the Facade
+    }
+}
+
+```
+Do you see how "return" keyword is now turned into function calls ?!
+Now we have got rid of returns, it is possible to extract into methods like below:
+
 
 ```php
 class LoginController
@@ -65,29 +108,50 @@ class LoginController
     {
         // Here we are telling what to do (not asking them)
         // What can be more readable than this ?
-        $this->validateRequest();
-        $this->throttleAttempts();
-        $this->handleValidCredentials();
-        $this->handleInvalidCredentials();
+        $this->validateRequest();          // 1
+        $this->throttleAttempts();         // 2
+        $this->handleValidCredentials();   // 3 
+        $this->handleInvalidCredentials(); // 4
         
     }
     
+    // private functions may sit here
+    
     
     ...
-
-
     
 }
 ```
 
 
-Now we can clean it even more.
-But let's stop here.
+### Usage:
+
+you can use it like this:
+
+```php
+$response = response()->json($someData);
+
+sendAndTerminate($response);
+
+// or use facade :
+
+\Imanghafoori\Responder\Facades\Responder::sendAndTerminate($response);
+
+```
+**In fact sendAndTerminate() function can accept anything you normally return from a typical controller.**
 
 
 ### About Testibility:
 Let me mention that The "sendAndTerminate" helper function (like other laravel helper functions) can be easily mocked out and does not affect the testibility at all.
 
 
-Throwing exception can also some how create something like this.
-But throwing exception and register handlers for them can easily become confusing since they create a lot of parallel execution flows.
+
+### More of the Author
+
+**If you are looking for more new ways of recatoring yor controllers visit the repo below**
+
+https://github.com/imanghafoori1/laravel-widgetize
+
+https://github.com/imanghafoori1/laravel-widgetize
+
+https://github.com/imanghafoori1/laravel-widgetize
