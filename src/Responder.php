@@ -16,6 +16,7 @@ class Responder
     public function sendAndTerminate($response)
     {
         $request = app('request');
+        app('session')->driver()->save();
         // Send the response to the users browser
         app('router')->prepareResponse($request, $response)->send();
         // Dispatches the core laravel event
