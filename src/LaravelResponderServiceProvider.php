@@ -12,8 +12,8 @@ class LaravelResponderServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('Imanghafoori\Responder\Responder', function () {
-            return new Responder();
+        $this->app->singleton('Imanghafoori\Responder\Responder', function ($app) {
+            return $app->make(Responder::class);
         });
     }
 }

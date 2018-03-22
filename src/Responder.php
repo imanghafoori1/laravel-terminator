@@ -16,6 +16,13 @@ class Responder
 {
     private $manager;
 
+    private $encrypter;
+
+    public function __construct(EncrypterContract $encrypter)
+    {
+        $this->encrypter = $encrypter;
+    }
+
     /**
      * Here we just mimic what laravel core does behind the curtain
      * after we return a response from a controller...
@@ -29,7 +36,7 @@ class Responder
         if ($this->sessionConfigured()) {
             $this->storeCurrentUrl($request, $session);
 
-            $this->addCookieToResponse($response, $session);
+            $this->addCookieToResponse($response, $session->driver());
         }
         $response = $this->encrypt($response);
         // Send the response to the users browser
