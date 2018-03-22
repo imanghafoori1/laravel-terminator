@@ -1,7 +1,9 @@
 <?php
 namespace Imanghafoori\Responder;
 
-class LaravelResponderServiceProvider
+use Illuminate\Support\ServiceProvider;
+
+class LaravelResponderServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
