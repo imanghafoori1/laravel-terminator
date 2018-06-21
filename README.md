@@ -113,9 +113,9 @@ class LoginController
 
 
 
-#### Solution : 
+#### Refactoring Steps: 
 
-With this technique you can write it like this:
+1 - First you shoud eliminate "return" statements in your controllers like this:
 
 ```php
 
@@ -162,7 +162,8 @@ class AuthController {
 
 Do you see how "return" keyword is now turned into function calls ?!
 
-Now we have got rid of returns, it is possible to extract into methods like below:
+
+2 - Now we have got rid of returns, it is possible to extract into methods like below:
 
 
 ```php
@@ -180,8 +181,6 @@ class LoginController
 }
 ```
 
-
-### Usage:
 
 You can use it like this:
 
@@ -204,14 +203,29 @@ sendAndTerminate($response);
 
 ### About Testibility:
 
-Let me mention that The "sendAndTerminate" helper function (like other laravel helper functions) can be easily mocked out and does not affect the testibility at all.
+Let me mention that the "sendAndTerminate or respondWith" helper functions (like other laravel helper functions) can be easily mocked out and does not affect the testibility at all.
+
+In fact they make your application for testable, because your tests do not fail if you change the shape of your response.
 
 
 
-### More of the Author
+### More from the author:
 
-**If you are looking for more new ways of refactoring your controllers visit the link below**
+ :gem: A minimal yet powerful package to give you opportunity to refactor your controllers.
 
-https://github.com/ImanGhafoori1/laravel-widgetize
+- https://github.com/imanghafoori1/laravel-anypass
+
+------------------
+
+ :gem: A minimal yet powerful package to give a better structure and caching opportunity for your laravel apps.
+
+- https://github.com/imanghafoori1/laravel-widgetize
+
+
+-------------------
+
+ :gem: A simple package that lets you easily impersonate your users.
+
+- https://github.com/imanghafoori1/laravel-MasterPass
 
 
