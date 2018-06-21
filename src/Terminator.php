@@ -6,6 +6,7 @@ class Terminator
 {
     /**
      * @param $response
+     * @throws \ImanGhafoori\Terminator\TerminateException
      */
     public function respondWith($response)
     {
