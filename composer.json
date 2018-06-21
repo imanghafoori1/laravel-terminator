@@ -1,13 +1,13 @@
 {
-  "name": "imanghafoori/laravel-responder",
+  "name": "Imanghafoori/laravel-terminator",
   "description": "A minimal yet powerful package to give you opportunity to refactor your controllers.",
   "keywords": ["laravel","laravel5-package","PHP","laravel5"],
   "license": "MIT",
-  "homepage": "https://github.com/imanghafoori1/laravel-responder",
+  "homepage": "https://github.com/Imanghafoori1/laravel-terminator",
   "authors": [
     {
       "name": "Iman Ghafoori",
-      "email": "imanghafoori1@gmail.com"
+      "email": "Imanghafoori1@gmail.com"
     }
   ],
   "require": {
@@ -20,17 +20,10 @@
   },
   "autoload": {
     "psr-4": {
-      "Imanghafoori\\Responder\\": "src"
+      "ImanGhafoori\\Terminator\\": "src"
     },
     "files": [
       "src/helpers.php"
     ]
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "Imanghafoori\\Responder\\LaravelResponderServiceProvider"
-      ]
-    }
   }
 }

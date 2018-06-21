@@ -9,7 +9,7 @@
 ### Installation:
 
 `
-composer require imanghafoori/laravel-responder
+composer require ImanGhafoori/laravel-terminator
 `
 
 
@@ -63,7 +63,7 @@ With this technique you can write it like this:
 
 ```php
 
-use \Imanghafoori\Responder\Facades\Responder;
+use \ImanGhafoori\Terminator\Facades\Responder;
 
 class AuthController {
     public function login(Request $request)
@@ -98,7 +98,7 @@ class AuthController {
           $this->incrementLoginAttempts($request);
           $response = $this->sendFailedLoginResponse($request) 
          
-          Responder::sendAndTerminate($response);  // or use the Facade
+          respondeWith($response);  // or use the Facade
     }
 }
 
@@ -137,11 +137,11 @@ you can use it like this:
 ```php
 $response = response()->json($someData);
 
-sendAndTerminate($response);
+respondWith($response);
 
 // or use facade :
 
-\Imanghafoori\Responder\Facades\Responder::sendAndTerminate($response);
+\ImanGhafoori\Terminator\TerminatorFacade::sendAndTerminate($response);
 
 ```
 **In fact sendAndTerminate() function can accept anything you normally return from a typical controller.**
@@ -154,8 +154,8 @@ Let me mention that The "sendAndTerminate" helper function (like other laravel h
 
 ### More of the Author
 
-**If you are looking for more new ways of recatoring your controllers visit the repo below**
+**If you are looking for more new ways of refactoring your controllers visit the link below**
 
-https://github.com/imanghafoori1/laravel-widgetize
+https://github.com/ImanGhafoori1/laravel-widgetize
 
 

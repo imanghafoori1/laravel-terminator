@@ -1,10 +1,10 @@
 <?php
 
-namespace Imanghafoori\Responder\Facades;
+namespace ImanGhafoori\Terminator;
 
-use Illuminate\Support\Facades\Facade;
+use Illuminate\Support\Facade;
 
-class Responder extends Facade
+class TerminatorFacade extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -13,6 +13,6 @@ class Responder extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'Imanghafoori\Responder\Responder';
+        return \ImanGhafoori\Terminator\Terminator::class;
     }
 }
