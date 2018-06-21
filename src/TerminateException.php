@@ -34,7 +34,7 @@ class TerminateException extends Exception
      * @param  \Illuminate\Http\Request
      * @return \Illuminate\Http\Response
      */
-    public function render($request)
+    public function render()
     {
        return $this->response;
     }

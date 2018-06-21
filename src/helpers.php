@@ -8,7 +8,7 @@ if (! function_exists('sendAndTerminate')) {
      */
     function sendAndTerminate($response = '')
     {
-        app(ImanGhafoori\Terminator\Terminator::class)->sendAndTerminate($response);
+        respondWith($response);
     }
 }
 
@@ -21,6 +21,6 @@ if (! function_exists('respondWith')) {
      */
     function respondWith($response = '')
     {
-        sendAndTerminate($response);
+        app(ImanGhafoori\Terminator\Terminator::class)->respondWith($response);
     }
 }
