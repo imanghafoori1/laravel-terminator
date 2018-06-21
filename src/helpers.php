@@ -17,10 +17,15 @@ if (! function_exists('respondWith')) {
      * Get the path to the resources folder.
      *
      * @param  string  $response
-     * @return string
+     * @throws \ImanGhafoori\Terminator\TerminateException
+     *
+     * @return null|\Illuminate\Contracts\Routing\ResponseFactory
      */
-    function respondWith($response = '')
+    function respondWith($response = null)
     {
+        if (is_null($response)) {
+            return app(ImanGhafoori\Terminator\Responder::class);
+        }
         app(ImanGhafoori\Terminator\Terminator::class)->respondWith($response);
     }
 }
