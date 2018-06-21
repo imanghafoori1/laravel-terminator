@@ -1,9 +1,9 @@
 {
-  "name": "Imanghafoori/laravel-terminator",
+  "name": "imanghafoori/laravel-terminator",
   "description": "A minimal yet powerful package to give you opportunity to refactor your controllers.",
-  "keywords": ["laravel","laravel5-package","PHP","laravel5"],
+  "keywords": ["laravel", "laravel5-package", "PHP", "laravel5"],
   "license": "MIT",
-  "homepage": "https://github.com/Imanghafoori1/laravel-terminator",
+  "homepage": "https://github.com/imanghafoori1/laravel-terminator",
   "authors": [
     {
       "name": "Iman Ghafoori",
