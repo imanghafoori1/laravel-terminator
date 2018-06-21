@@ -2,23 +2,46 @@
 
 ## What this package is good for ?
 
-**This package helps you refactor your controllers code by bringing The "law of demter" into it.**
-
-
+**This package helps you refactor your controller code**
 
 ### Installation:
 
 `
-composer require ImanGhafoori/laravel-terminator
+composer require imanghafoori/laravel-terminator
 `
 
 
+### Code smell:
+- when you see that you have an endpoint from which you have to send back more than one type of response... then this package is going to help you a lot.
 
-The fact that we have to "return" a response from controllers prevents framework users from refactoring their controller code beyond a certain point.
+#### Example:
 
-Consider the code below inspired from a trait in laravel source code.
+consider a login endpoint! it may return 4 type of responses in different cases:
+- 1- User is already logged in, so redirect.
+- 2- Successfull login
+- 3- Invalid credentials error
+- 4- Incorrect credentials error
+- 5- Too many login attempts error
+
+
+The fact that frameworks force us to "return a response" from controllers prevents us from simplify controllers beyond a certain point.
+So we decide to break that jail and bring ourselves freedom. 
+
+The idea is : Any class in the application should be able to send back a response.
+
+## Remember:
+
+# Controllers are Controllers, they are not Responders !!!
+
+They control the execution flow and send commands to other objects and tell them what to do. Their responsibily is not to send a response back to the client.
+
+
+Consider the code below:
 
 ```php
+// BAD code : Too many conditions
+// BAD code : In a sinle method
+// BAD code : (@_@)   (?_?)
 
 class AuthController {
   public function login(Request $request)
@@ -31,21 +54,27 @@ class AuthController {
           if ($validator->fails()) {
               return redirect('/some-where')->withErrors($validator)->withInput();
           }
+          // end 1
          
           // 2 - throttle Attempts
           if ($this->hasTooManyLoginAttempts($request)) {
               $this->fireLockoutEvent($request);
               return $this->sendLockoutResponse($request);
           }
+          // end 2
          
           // 3 - handle valid Credentials
           if ($this->attemptLogin($request)) {
               return $this->sendLoginResponse($request);
           }
+          // end 3
 
           // 4 - handle invalid Credentials
           $this->incrementLoginAttempts($request);
           return $this->sendFailedLoginResponse($request);
+          // end 4
+          
+          //These if blocks can not be extracted out.
   }
 }
 
@@ -53,9 +82,36 @@ class AuthController {
 #### Problem :
 
 With the current approach, this is as much as we can refactor at best.
-These if blocks can not be easily extracted out.
-
 Why ? because the controllers are asking for response, they are not telling what to do.
+
+
+```php
+
+// Good code
+// Good code
+// Good code
+
+class LoginController
+{
+    public function Login(Request $request)
+    {
+        // Here we are telling what to do (not asking them)
+        // Nice ???
+        $this->validateRequest();          // 1
+        $this->throttleAttempts();         // 2
+        $this->handleValidCredentials();   // 3 
+        $this->handleInvalidCredentials(); // 4
+        
+    }
+    
+    // private functions may sit here
+    
+    ...
+    
+}
+```
+
+
 
 #### Solution : 
 
@@ -75,7 +131,7 @@ class AuthController {
           ]);
           if ($validator->fails()) {
                $response = redirect('/some-where')->withErrors($validator)->withInput();
-               sendAndTerminate($response);
+               respondeWith($response);
           }
           
          
@@ -83,14 +139,14 @@ class AuthController {
           if ($this->hasTooManyLoginAttempts($request)) {
               $this->fireLockoutEvent($request);
               $response = $this->sendLockoutResponse($request);
-              sendAndTerminate($response);
+              respondeWith($response);
           }
           
          
           // 3 - handle valid Credentials
           if ($this->attemptLogin($request)) {
                $response = $this->sendLoginResponse($request);
-               sendAndTerminate($response);
+               respondeWith($response);
           }
           
 
@@ -103,7 +159,9 @@ class AuthController {
 }
 
 ```
+
 Do you see how "return" keyword is now turned into function calls ?!
+
 Now we have got rid of returns, it is possible to extract into methods like below:
 
 
@@ -112,35 +170,32 @@ class LoginController
 {
     public function Login(Request $request)
     {
-        // Here we are telling what to do (not asking them)
-        // What can be more readable than this ?
-        $this->validateRequest();          // 1
-        $this->throttleAttempts();         // 2
-        $this->handleValidCredentials();   // 3 
-        $this->handleInvalidCredentials(); // 4
+        $this->validateRequest();         
+        $this->throttleAttempts();       
+        $this->handleValidCredentials();  
+        $this->handleInvalidCredentials(); 
         
     }
-    
-    // private functions may sit here
-    
-    
     ...
-    
 }
 ```
 
 
 ### Usage:
 
-you can use it like this:
+You can use it like this:
 
 ```php
 $response = response()->json($someData);
 
 respondWith($response);
 
-// or use facade :
 
+// or an alias function:
+
+sendAndTerminate($response);
+
+// or use facade :
 \ImanGhafoori\Terminator\TerminatorFacade::sendAndTerminate($response);
 
 ```
@@ -148,6 +203,7 @@ respondWith($response);
 
 
 ### About Testibility:
+
 Let me mention that The "sendAndTerminate" helper function (like other laravel helper functions) can be easily mocked out and does not affect the testibility at all.
 
 
