@@ -33,7 +33,7 @@ No need to add any service providers.
 
 ### When to use it?
 
-#### Code smell:
+#### Code smell: :nose:
 
 - When you see that you have an endpoint from which you have to send back more than one type of response... Then this package is going to help you a lot.
 
@@ -138,13 +138,13 @@ class LoginController
 }
 ```
 
-### Note:
+### Note: 
 
 Using "**respondWith()**" does not prevent the normal execution flow of the framework to be interrupted.
-All the middlewares and other normal termination process of the laravel will happen as normal.
+All the middlewares and other normal termination process of the laravel will happen as normal. So it is production ready! :dolphin:
 
 
-#### Refactoring Steps: 
+#### Refactoring Steps: :hammer:
 
 1 - First you shoud eliminate "return" statements in your controllers like this:
 
@@ -245,6 +245,15 @@ Let me mention that the "sendAndTerminate or respondWith" helper functions (like
 
 In fact they make your application for testable, because your tests do not fail if you change the shape of your response.
 
+
+#### ❗️ Security
+
+If you discover any security related issues, please email :e-mail: imanghafoori1@gmail.com instead of using the issue tracker.
+
+
+#### ⭐️ Your Stars Make Us Do More ⭐️
+
+As always if you found this package useful and you want to encourage us to maintain and work on it, Please press the star button to declare your willing.
 
 ### More from the author:
 
