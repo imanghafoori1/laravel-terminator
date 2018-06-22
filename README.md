@@ -15,6 +15,8 @@ Short answer : **This package helps you clean up your controller code in a way t
 <a href="https://scrutinizer-ci.com/g/imanghafoori1/laravel-terminator"><img src="https://img.shields.io/scrutinizer/g/imanghafoori1/laravel-terminator.svg?style=round-square" alt="Quality Score"></img></a>
 [![License](https://poser.pugx.org/imanghafoori/laravel-terminator/license)](https://packagist.org/packages/imanghafoori/laravel-terminator)
 
+**Made with :heart: for every laravel "Clean Coder"**
+
 ### Installation:
 
 `
