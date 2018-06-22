@@ -5,7 +5,7 @@
 
 ### What this package is good for ?
 
-Short answer : **This package helps you refactor your controller code**
+Short answer : **This package helps you clean up your controller code in a way that you have never seen before**
 
 
 ![terminator-movie-terminator-5-genisys- 0 0-1200x800](https://user-images.githubusercontent.com/6961695/41775502-5406df86-7639-11e8-9211-3b618e0e4600.jpg)
@@ -16,8 +16,14 @@ Short answer : **This package helps you refactor your controller code**
 composer require imanghafoori/laravel-terminator
 `
 
+### Compatibility:
+
+- Laravel +5.1 and above
+- Php 7.0 and above
+
 
 ### When to use it?
+
 #### Code smell:
 - When you see that you have an endpoint from which you have to send back more than one type of response... then this package is going to help you a lot.
 
