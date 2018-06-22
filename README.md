@@ -1,6 +1,6 @@
-# Laravel Terminator
+ # :fire:Laravel Terminator :fire:
 
-## "Tell, don't ask principle" for your laravel controllers
+## :gem: "Tell, don't ask principle" for your laravel controllers
 
 
 ### What this package is good for ?
@@ -55,9 +55,9 @@ The idea is : Any class in the application should be able to send back a respons
 
 # Remember:
 
-## Controllers are Controllers, they are not Responders !!!
+## Controllers Are Controllers, They Are Not Responders !!!
 
-They control the execution flow and send commands to other objects and tell them what to do. Their responsibily is not to send a response back to the client.
+Controllers, control the execution flow of your code and send commands to other objects and tell them what to do. Their responsibily is not sending a response back to the client.
 
 
 Consider the code below:
@@ -122,7 +122,8 @@ class LoginController
     public function Login(Request $request)
     {
         // Here we are telling what to do (not asking them)
-        // Nice ???
+        // No response, just commands, Nice ???
+        
         $this->validateRequest();          // 1
         $this->throttleAttempts();         // 2
         $this->handleValidCredentials();   // 3 
