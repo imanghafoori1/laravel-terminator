@@ -194,7 +194,7 @@ class AuthController {
 Do you see how "return" keyword is now turned into function calls ?!
 
 
-2 - Now we have got rid of returns, it is possible to extract into methods like below:
+2 - Now we have got rid of return statements, it is possible to extract each if block into a method like below:
 
 
 ```php
