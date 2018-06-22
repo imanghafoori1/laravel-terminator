@@ -1,8 +1,14 @@
-# Tell, don't ask principle in your laravel controllers
+# Laravel Terminator
 
-## What this package is good for ?
+## "Tell, don't ask principle" for your laravel controllers
 
-**This package helps you refactor your controller code**
+
+### What this package is good for ?
+
+Short answer : **This package helps you refactor your controller code**
+
+
+![terminator-movie-terminator-5-genisys- 0 0-1200x800](https://user-images.githubusercontent.com/6961695/41775502-5406df86-7639-11e8-9211-3b618e0e4600.jpg)
 
 ### Installation:
 
@@ -11,12 +17,13 @@ composer require imanghafoori/laravel-terminator
 `
 
 
-### Code smell:
-- when you see that you have an endpoint from which you have to send back more than one type of response... then this package is going to help you a lot.
+### When to use it?
+#### Code smell:
+- When you see that you have an endpoint from which you have to send back more than one type of response... then this package is going to help you a lot.
 
 #### Example:
 
-consider a login endpoint! it may return 4 type of responses in different cases:
+Consider a typical login endpoint. It may return 5 type of responses in different cases:
 - 1- User is already logged in, so redirect.
 - 2- Successfull login
 - 3- Invalid credentials error
@@ -24,14 +31,15 @@ consider a login endpoint! it may return 4 type of responses in different cases:
 - 5- Too many login attempts error
 
 
-The fact that frameworks force us to "return a response" from controllers prevents us from simplify controllers beyond a certain point.
+The fact that MVC frameworks force us to "return a response" from controllers prevents us from simplify controllers beyond a certain point.
 So we decide to break that jail and bring ourselves freedom. 
 
 The idea is : Any class in the application should be able to send back a response.
 
-## Remember:
 
-# Controllers are Controllers, they are not Responders !!!
+# Remember:
+
+## Controllers are Controllers, they are not Responders !!!
 
 They control the execution flow and send commands to other objects and tell them what to do. Their responsibily is not to send a response back to the client.
 
@@ -46,35 +54,35 @@ Consider the code below:
 class AuthController {
   public function login(Request $request)
   {
-            // 1 - Validate Request
+           
            $validator = Validator::make($request->all(), [
               'email' => 'required|max:255||string',
               'password' => 'required|confirmed||string',
           ]);
           if ($validator->fails()) {
-              return redirect('/some-where')->withErrors($validator)->withInput();
+              return redirect('/some-where')->withErrors($validator)->withInput(); // response 1
           }
-          // end 1
+          
          
           // 2 - throttle Attempts
           if ($this->hasTooManyLoginAttempts($request)) {
               $this->fireLockoutEvent($request);
-              return $this->sendLockoutResponse($request);
+              return $this->sendLockoutResponse($request);   // response 2
           }
-          // end 2
+        
          
           // 3 - handle valid Credentials
           if ($this->attemptLogin($request)) {
-              return $this->sendLoginResponse($request);
+              return $this->sendLoginResponse($request);   // response 3
           }
-          // end 3
+        
 
           // 4 - handle invalid Credentials
           $this->incrementLoginAttempts($request);
-          return $this->sendFailedLoginResponse($request);
-          // end 4
+          return $this->sendFailedLoginResponse($request); // response 4
           
-          //These if blocks can not be extracted out.
+          
+          //These if blocks can not be extracted out. Can they ?
   }
 }
 
@@ -83,6 +91,8 @@ class AuthController {
 
 With the current approach, this is as much as we can refactor at best.
 Why ? because the controllers are asking for response, they are not telling what to do.
+
+We do not want many if conditions all within a single method, it makes the method hard to understand and reason about.
 
 
 ```php
@@ -189,10 +199,17 @@ $response = response()->json($someData);
 
 respondWith($response);
 
+// or 
+respondWith()->json($someData);
+
 
 // or an alias function:
 
 sendAndTerminate($response);
+
+// or 
+
+respondWith()->json($someData);
 
 // or use facade :
 \ImanGhafoori\Terminator\TerminatorFacade::sendAndTerminate($response);
