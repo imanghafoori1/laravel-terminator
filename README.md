@@ -25,6 +25,7 @@ composer require imanghafoori/laravel-terminator
 ### When to use it?
 
 #### Code smell:
+
 - When you see that you have an endpoint from which you have to send back more than one type of response... then this package is going to help you a lot.
 
 #### Example:
@@ -127,6 +128,10 @@ class LoginController
 }
 ```
 
+### Note:
+
+Using "**respondWith()**" does not prevent the normal execution flow of the framework to be interrupted.
+All the middlewares and other normal termination process of the laravel will happen as normal.
 
 
 #### Refactoring Steps: 
@@ -229,7 +234,6 @@ respondWith()->json($someData);
 Let me mention that the "sendAndTerminate or respondWith" helper functions (like other laravel helper functions) can be easily mocked out and does not affect the testibility at all.
 
 In fact they make your application for testable, because your tests do not fail if you change the shape of your response.
-
 
 
 ### More from the author:
