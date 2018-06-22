@@ -16,6 +16,8 @@ Short answer : **This package helps you clean up your controller code in a way t
 composer require imanghafoori/laravel-terminator
 `
 
+No need to add any service providers.
+
 ### Compatibility:
 
 - Laravel +5.1 and above
@@ -26,11 +28,11 @@ composer require imanghafoori/laravel-terminator
 
 #### Code smell:
 
-- When you see that you have an endpoint from which you have to send back more than one type of response... then this package is going to help you a lot.
+- When you see that you have an endpoint from which you have to send back more than one type of response... Then this package is going to help you a lot.
 
 #### Example:
 
-Consider a typical login endpoint. It may return 5 type of responses in different cases:
+Consider a typical login endpoint, It may return 5 type of responses in different cases:
 - 1- User is already logged in, so redirect.
 - 2- Successfull login
 - 3- Invalid credentials error
