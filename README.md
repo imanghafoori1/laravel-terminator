@@ -248,6 +248,13 @@ Let me mention that the "sendAndTerminate or respondWith" helper functions (like
 In fact they make your application for testable, because your tests do not fail if you change the shape of your response.
 
 
+#### How The Magic Is Even Possible, Dude ?!
+
+You may wonder how this magic is working behind the scenes. In short it uses nothing more than a standard laravel "renderable exception".
+
+We highly encourage you to take a look at the simple source code of the package to find out what's going on there. It is only a few lines of code.
+
+
 #### ❗️ Security
 
 If you discover any security related issues, please email :e-mail: imanghafoori1@gmail.com instead of using the issue tracker.
