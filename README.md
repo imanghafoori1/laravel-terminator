@@ -146,7 +146,7 @@ All the middlewares and other normal termination process of the laravel will hap
 
 #### Refactoring Steps: :hammer:
 
-1 - First you shoud eliminate "return" statements in your controllers like this:
+1 - First, you should eliminate "return" statements in your controllers like this:
 
 ```php
 
@@ -191,10 +191,11 @@ class AuthController {
 
 ```
 
-Do you see how "return" keyword is now turned into function calls ?!
+Do you see how "return" keyword is now turned into regular function calls ?!
 
 
-2 - Now we have got rid of return statements, it is possible to extract each if block into a method like below:
+2 - Now that we have got rid of return statements,then the rest is easy,
+It is now possible to extract each if block into a method like below:
 
 
 ```php
@@ -212,8 +213,9 @@ class LoginController
 }
 ```
 
+### API
 
-You can use it like this:
+All this package exposes for you is:
 
 ```php
 $response = response()->json($someData);
@@ -236,7 +238,7 @@ respondWith()->json($someData);
 \ImanGhafoori\Terminator\TerminatorFacade::sendAndTerminate($response);
 
 ```
-**In fact sendAndTerminate() function can accept anything you normally return from a typical controller.**
+**In fact sendAndTerminate() ( or it's alias "respondWith" ) function can accept anything you normally return from a typical controller.**
 
 
 ### About Testibility:
@@ -270,7 +272,7 @@ As always if you found this package useful and you want to encourage us to maint
 
 -------------------
 
- :gem: A simple package that lets you easily impersonate your users.
+ :gem: A simple package that lets you easily impersonate your users in production.
 
 - https://github.com/imanghafoori1/laravel-MasterPass
 
