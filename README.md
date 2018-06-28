@@ -226,13 +226,10 @@ respondWith($response);
 respondWith()->json($someData);
 
 
-// or an alias function:
+// or an alias function for 'respondWith()' is 'sendAndTerminate':
 
 sendAndTerminate($response);
 
-// or 
-
-respondWith()->json($someData);
 
 // or use facade :
 \ImanGhafoori\Terminator\TerminatorFacade::sendAndTerminate($response);
