@@ -162,7 +162,7 @@ class AuthController {
           ]);
           if ($validator->fails()) {
                $response = redirect('/some-where')->withErrors($validator)->withInput();
-               respondeWith($response);
+               respondeWith($response);  // <-- look here
           }
           
          
@@ -170,14 +170,14 @@ class AuthController {
           if ($this->hasTooManyLoginAttempts($request)) {
               $this->fireLockoutEvent($request);
               $response = $this->sendLockoutResponse($request);
-              respondeWith($response);
+              respondeWith($response); // <-- look here
           }
           
          
           // 3 - handle valid Credentials
           if ($this->attemptLogin($request)) {
                $response = $this->sendLoginResponse($request);
-               respondeWith($response);
+               respondeWith($response);  // <-- look here
           }
           
 
@@ -185,7 +185,7 @@ class AuthController {
           $this->incrementLoginAttempts($request);
           $response = $this->sendFailedLoginResponse($request) 
          
-          respondeWith($response);  // or use the Facade
+          respondeWith($response);  // <-- look here
     }
 }
 
@@ -213,9 +213,13 @@ class LoginController
 }
 ```
 
-### API
+### Terminator API
 
-All this package exposes for you is:
+All this package exposes for you is 2 global helper functions and 1 Facade:
+
+- respondWith()
+- sendAndTerminate()
+- \ImanGhafoori\Terminator\TerminatorFacade::sendAndTerminate()
 
 ```php
 $response = response()->json($someData);
@@ -241,6 +245,12 @@ sendAndTerminate($response);
 ### About Testibility:
 
 Let me mention that the "sendAndTerminate or respondWith" helper functions (like other laravel helper functions) can be easily mocked out and does not affect the testibility at all.
+
+
+```php
+// Sample Mock
+TerminatorFacade::shouldRecieve('sendAndTerminate')->once()->with($someResponse)->andReturn(true);
+```
 
 In fact they make your application for testable, because your tests do not fail if you change the shape of your response.
 
