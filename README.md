@@ -57,7 +57,7 @@ The idea is : Any class in the application should be able to send back a respons
 
 ## Controllers Are Controllers, They Are Not Responders !!!
 
-Controllers, control the execution flow of your code and send commands to other objects and tell them what to do. Their responsibily is not sending a response back to the client.
+Controllers, "control" the execution flow of your code, and send commands to other objects, telling them what to do. Their responsibility is not returning a "response" back to the client. And this is the philosophy of terminator package.
 
 
 Consider the code below:
