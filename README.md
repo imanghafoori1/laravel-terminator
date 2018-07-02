@@ -64,7 +64,7 @@ Consider the code below:
 
 ```php
 // BAD code : Too many conditions
-// BAD code : In a sinle method
+// BAD code : In a single method
 // BAD code : (@_@)   (?_?)
 
 class AuthController {
@@ -75,6 +75,7 @@ class AuthController {
               'email' => 'required|max:255||string',
               'password' => 'required|confirmed||string',
           ]);
+          
           if ($validator->fails()) {
               return redirect('/some-where')->withErrors($validator)->withInput(); // response 1
           }
@@ -106,7 +107,7 @@ class AuthController {
 #### Problem :
 
 With the current approach, this is as much as we can refactor at best.
-Why ? because the controllers are asking for response, they are not telling what to do.
+Why? because the controllers are asking for response, they are not telling what to do.
 
 We do not want many if conditions all within a single method, it makes the method hard to understand and reason about.
 
@@ -160,6 +161,7 @@ class AuthController {
               'email' => 'required|max:255||string',
               'password' => 'required|confirmed||string',
           ]);
+          
           if ($validator->fails()) {
                $response = redirect('/some-where')->withErrors($validator)->withInput();
                respondeWith($response);  // <-- look here
