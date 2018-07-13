@@ -17,6 +17,8 @@
   "autoload-dev": {
   },
   "require-dev": {
+    "orchestra/testbench": "~3.0",
+    "mockery/mockery": "^0.9.9"
   },
   "autoload": {
     "psr-4": {
