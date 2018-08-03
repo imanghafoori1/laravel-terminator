@@ -275,11 +275,24 @@ As always if you found this package useful and you want to encourage us to maint
 
 ### More from the author:
 
+
+#### Laravel Hey Man
+
+:gem: It allows to write expressive code to authorize, validate and authenticate.
+
+- https://github.com/imanghafoori1/laravel-heyman
+
+------------------
+
+#### Laravel Any Pass
+
  :gem: A minimal yet powerful package to give you opportunity to refactor your controllers.
 
 - https://github.com/imanghafoori1/laravel-anypass
 
 ------------------
+
+#### Laravel Widgetize
 
  :gem: A minimal yet powerful package to give a better structure and caching opportunity for your laravel apps.
 
@@ -287,6 +300,9 @@ As always if you found this package useful and you want to encourage us to maint
 
 
 -------------------
+
+#### Laravel Master Pass
+
 
  :gem: A simple package that lets you easily impersonate your users in production.
 
