@@ -164,7 +164,7 @@ class AuthController {
           
           if ($validator->fails()) {
                $response = redirect('/some-where')->withErrors($validator)->withInput();
-               respondeWith($response);  // <-- look here
+               respondWith($response);  // <-- look here
           }
           
          
@@ -172,14 +172,14 @@ class AuthController {
           if ($this->hasTooManyLoginAttempts($request)) {
               $this->fireLockoutEvent($request);
               $response = $this->sendLockoutResponse($request);
-              respondeWith($response); // <-- look here
+              respondWith($response); // <-- look here
           }
           
          
           // 3 - handle valid Credentials
           if ($this->attemptLogin($request)) {
                $response = $this->sendLoginResponse($request);
-               respondeWith($response);  // <-- look here
+               respondWith($response);  // <-- look here
           }
           
 
@@ -187,7 +187,7 @@ class AuthController {
           $this->incrementLoginAttempts($request);
           $response = $this->sendFailedLoginResponse($request) 
          
-          respondeWith($response);  // <-- look here
+          respondWith($response);  // <-- look here
     }
 }
 
