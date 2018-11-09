@@ -286,7 +286,7 @@ As always if you found this package useful and you want to encourage us to maint
 
 #### Laravel Any Pass
 
- :gem: A minimal yet powerful package to give you opportunity to refactor your controllers.
+ :gem: A minimal package that helps you login with any password on local environments.
 
 - https://github.com/imanghafoori1/laravel-anypass
 
