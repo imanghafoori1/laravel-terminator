@@ -8,7 +8,7 @@
 Short answer : **This package helps you clean up your controller code in a way that you have never seen before**
 
 
-![terminator-movie-terminator-5-genisys- 0 0-1200x800](https://user-images.githubusercontent.com/6961695/41775502-5406df86-7639-11e8-9211-3b618e0e4600.jpg)
+![terminator-movie-terminator-5-genisys- 0 0-600x400](https://user-images.githubusercontent.com/6961695/41775502-5406df86-7639-11e8-9211-3b618e0e4600.jpg)
 
 [![Latest Stable Version](https://poser.pugx.org/imanghafoori/laravel-terminator/v/stable)](https://packagist.org/packages/imanghafoori/laravel-terminator)
 [![Build Status](https://scrutinizer-ci.com/g/imanghafoori1/laravel-terminator/badges/build.png?b=master)](https://scrutinizer-ci.com/g/imanghafoori1/laravel-terminator/build-status/master)
