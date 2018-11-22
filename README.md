@@ -8,13 +8,16 @@
 Short answer : **This package helps you clean up your controller code in a way that you have never seen before**
 
 
-![terminator-movie-terminator-5-genisys- 0 0-600x400](https://user-images.githubusercontent.com/6961695/41775502-5406df86-7639-11e8-9211-3b618e0e4600.jpg)
+<p align="left">
+  <img src="https://user-images.githubusercontent.com/6961695/41775502-5406df86-7639-11e8-9211-3b618e0e4600.jpg" width="400" title="I kill nasty code">
+
+
 
 [![Latest Stable Version](https://poser.pugx.org/imanghafoori/laravel-terminator/v/stable)](https://packagist.org/packages/imanghafoori/laravel-terminator)
 [![Build Status](https://scrutinizer-ci.com/g/imanghafoori1/laravel-terminator/badges/build.png?b=master)](https://scrutinizer-ci.com/g/imanghafoori1/laravel-terminator/build-status/master)
 <a href="https://scrutinizer-ci.com/g/imanghafoori1/laravel-terminator"><img src="https://img.shields.io/scrutinizer/g/imanghafoori1/laravel-terminator.svg?style=round-square" alt="Quality Score"></img></a>
 [![License](https://poser.pugx.org/imanghafoori/laravel-terminator/license)](https://packagist.org/packages/imanghafoori/laravel-terminator)
-
+</p>
 **Made with :heart: for every laravel "Clean Coder"**
 
 ### Installation:
@@ -77,26 +80,26 @@ class AuthController {
           ]);
           
           if ($validator->fails()) {
-              return redirect('/some-where')->withErrors($validator)->withInput(); // response 1
+              return redirect('/some-where')->withErrors($validator)->withInput(); // return response 1
           }
           
          
           // 2 - throttle Attempts
           if ($this->hasTooManyLoginAttempts($request)) {
               $this->fireLockoutEvent($request);
-              return $this->sendLockoutResponse($request);   // response 2
+              return $this->sendLockoutResponse($request);   // return response 2
           }
         
          
           // 3 - handle valid Credentials
           if ($this->attemptLogin($request)) {
-              return $this->sendLoginResponse($request);   // response 3
+              return $this->sendLoginResponse($request);   // return response 3
           }
         
 
           // 4 - handle invalid Credentials
           $this->incrementLoginAttempts($request);
-          return $this->sendFailedLoginResponse($request); // response 4
+          return $this->sendFailedLoginResponse($request); // return response 4
           
           
           //These if blocks can not be extracted out. Can they ?
@@ -172,14 +175,14 @@ class AuthController {
           if ($this->hasTooManyLoginAttempts($request)) {
               $this->fireLockoutEvent($request);
               $response = $this->sendLockoutResponse($request);
-              respondWith($response); // <-- look here
+              respondWith($response); // <-- look here "no return !!!"
           }
           
          
           // 3 - handle valid Credentials
           if ($this->attemptLogin($request)) {
                $response = $this->sendLoginResponse($request);
-               respondWith($response);  // <-- look here
+               respondWith($response);  // <-- look here  "no return !!!"
           }
           
 
@@ -187,7 +190,7 @@ class AuthController {
           $this->incrementLoginAttempts($request);
           $response = $this->sendFailedLoginResponse($request) 
          
-          respondWith($response);  // <-- look here
+          respondWith($response);  // <-- look here "no return !!!"
     }
 }
 
@@ -304,7 +307,7 @@ As always if you found this package useful and you want to encourage us to maint
 #### Laravel Master Pass
 
 
- :gem: A simple package that lets you easily impersonate your users in production.
+ :gem: A simple package that lets you easily impersonate your users.
 
 - https://github.com/imanghafoori1/laravel-MasterPass
 
