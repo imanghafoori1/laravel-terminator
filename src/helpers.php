@@ -4,11 +4,11 @@ if (! function_exists('sendAndTerminate')) {
      * Get the path to the resources folder.
      *
      * @param  string  $response
-     * @return string
+     * @return null|\Illuminate\Contracts\Routing\ResponseFactory
      */
-    function sendAndTerminate($response = '')
+    function sendAndTerminate($response = null)
     {
-        respondWith($response);
+        return respondWith($response);
     }
 }
 
