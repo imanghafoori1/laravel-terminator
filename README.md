@@ -9,7 +9,7 @@ Short answer : **This package helps you clean up your controller code in a way t
 
 
 <p align="left">
-  <img src="https://user-images.githubusercontent.com/6961695/41775502-5406df86-7639-11e8-9211-3b618e0e4600.jpg" width="400" title="I kill nasty code">
+  <img src="https://user-images.githubusercontent.com/6961695/41775502-5406df86-7639-11e8-9211-3b618e0e4600.jpg" width="500" title="I kill nasty code">
 
 
 
