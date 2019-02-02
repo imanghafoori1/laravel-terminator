@@ -69,7 +69,7 @@ Consider the code below:
 // BAD code : Too many conditions
 // BAD code : In a single method
 // BAD code : (@_@)   (?_?)
-
+// (It is not that bad, since it is a simplified example)
 class AuthController {
   public function login(Request $request)
   {
