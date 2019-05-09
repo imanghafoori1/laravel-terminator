@@ -6,7 +6,6 @@ use Illuminate\Contracts\Routing\ResponseFactory;
 
 class Responder implements ResponseFactory
 {
-
     /**
      * Return a new response from the application.
      *
@@ -18,6 +17,18 @@ class Responder implements ResponseFactory
     public function make($content = '', $status = 200, array $headers = [])
     {
         respondWith(response()->make($content, $status, $headers));
+    }
+
+    /**
+     * Create a new "no content" response.
+     *
+     * @param  int  $status
+     * @param  array  $headers
+     * @return \Illuminate\Http\Response
+     */
+    public function noContent($status = 204, array $headers = [])
+    {
+        respondWith(response()->noContent($status, $headers));
     }
 
     /**
@@ -101,6 +112,18 @@ class Responder implements ResponseFactory
     public function download($file, $name = null, array $headers = [], $disposition = 'attachment')
     {
         respondWith(response()->download($file, $name, $headers, $disposition ));
+    }
+
+    /**
+     * Return the raw contents of a binary file.
+     *
+     * @param  \SplFileInfo|string  $file
+     * @param  array  $headers
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     */
+    public function file($file, array $headers = [])
+    {
+        respondWith(response()->file($file, $headers));
     }
 
     /**
