@@ -18,6 +18,7 @@ Short answer : **This package helps you clean up your controller code in a way t
 <a href="https://scrutinizer-ci.com/g/imanghafoori1/laravel-terminator"><img src="https://img.shields.io/scrutinizer/g/imanghafoori1/laravel-terminator.svg?style=round-square" alt="Quality Score"></img></a>
 [![License](https://poser.pugx.org/imanghafoori/laravel-terminator/license)](https://packagist.org/packages/imanghafoori/laravel-terminator)
 [![Total Downloads](https://poser.pugx.org/imanghafoori/laravel-terminator/downloads)](https://packagist.org/packages/imanghafoori/laravel-terminator)
+[![Donate Bitcoin](https://img.shields.io/badge/donate-$1-orange.svg)](https://blockchain.com/btc/payment_request?address=1MTPGWkNfBtT8mTith1Rf91MS4kucUX4c1&amount=0.00011451&message=terminator_donation&name=Iman)
 </p>
 **Made with :heart: for every laravel "Clean Coder"**
 
@@ -313,3 +314,15 @@ As always if you found this package useful and you want to encourage us to maint
 - https://github.com/imanghafoori1/laravel-MasterPass
 
 
+### Eloquent Relativity
+
+:gem: It allows you to decouple your eloquent models to reach a modular structure
+
+- https://github.com/imanghafoori1/eloquent-relativity
+
+
+## Donate me a Dollar
+
+If you think my work has saved you time and money please donate me `1 dollar`, since it's better than donating 0 dollars. ;)
+
+[![Donate Bitcoin](https://img.shields.io/badge/donate-$1-orange.svg)](https://blockchain.com/btc/payment_request?address=1MTPGWkNfBtT8mTith1Rf91MS4kucUX4c1&amount=0.00011451&message=terminator_donation&name=Iman)
