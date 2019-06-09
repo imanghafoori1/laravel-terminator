@@ -58,6 +58,7 @@ class Responder implements ResponseFactory
     {
         respondWith(response()->json($data, $status, $headers, $options));
     }
+
     /**
      * Return a new JSONP response from the application.
      *
@@ -137,7 +138,7 @@ class Responder implements ResponseFactory
      */
     public function redirectTo($path, $status = 302, $headers = [], $secure = null)
     {
-        respondWith(response()->redirectTo($path, $status, $headers, $secure));
+        return new Chain([$path, $status, $headers, $secure], 'redirectTo');
     }
 
     /**
@@ -151,7 +152,7 @@ class Responder implements ResponseFactory
      */
     public function redirectToRoute($route, $parameters = [], $status = 302, $headers = [])
     {
-        respondWith(response()->redirectToRoute($route, $parameters, $status, $headers));
+        return new Chain([$route, $parameters, $status, $headers], 'redirectToRoute');
     }
 
     /**
@@ -165,7 +166,7 @@ class Responder implements ResponseFactory
      */
     public function redirectToAction($action, $parameters = [], $status = 302, $headers = [])
     {
-        respondWith(response()->redirectToAction($action, $parameters, $status, $headers ));
+        return new Chain([$action, $parameters, $status, $headers], 'redirectToAction');
     }
 
     /**
@@ -179,7 +180,7 @@ class Responder implements ResponseFactory
      */
     public function redirectGuest($path, $status = 302, $headers = [], $secure = null)
     {
-        respondWith(response()->redirectGuest($path, $status, $headers, $secure));
+        return new Chain([$path, $status, $headers, $secure], 'redirectGuest');
     }
 
     /**
@@ -193,6 +194,6 @@ class Responder implements ResponseFactory
      */
     public function redirectToIntended($default = '/', $status = 302, $headers = [], $secure = null)
     {
-        respondWith(response()->redirectToIntended($default, $status, $headers, $secure ));
+        return new Chain([$default, $status, $headers, $secure], 'redirectToIntended');
     }
 }
