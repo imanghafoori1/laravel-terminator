@@ -269,14 +269,6 @@ You may wonder how this magic is working behind the scenes. In short it uses not
 We highly encourage you to take a look at the simple source code of the package to find out what's going on there. It is only a few lines of code.
 
 
-#### ❗️ Security
-
-If you discover any security related issues, please email :e-mail: imanghafoori1@gmail.com instead of using the issue tracker.
-
-
-#### ⭐️ Your Stars Make Us Do More ⭐️
-
-As always if you found this package useful and you want to encourage us to maintain and work on it, Please press the star button to declare your willing.
 
 ### More from the author:
 
@@ -319,6 +311,11 @@ As always if you found this package useful and you want to encourage us to maint
 :gem: It allows you to decouple your eloquent models to reach a modular structure
 
 - https://github.com/imanghafoori1/eloquent-relativity
+
+
+#### ⭐️ Your Stars Make Us Do More ⭐️
+
+As always if you found this package useful and you want to encourage us to maintain and work on it, Please press the star button to declare your willing.
 
 
 ## Donate me a Dollar
