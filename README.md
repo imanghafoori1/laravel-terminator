@@ -315,3 +315,18 @@ We highly encourage you to take a look at the simple source code of the package 
 #### ⭐️ Your Stars Make Us Do More ⭐️
 
 As always if you found this package useful and you want to encourage us to maintain and work on it, Please press the star button to declare your willing.
+
+
+-----------------
+
+----------------
+
+<p align="center">
+  
+    I believe in standardizing automobiles. I do not believe in standardizing human beings.
+    
+    "Albert Einstein"
+    
+</p>
+
+
