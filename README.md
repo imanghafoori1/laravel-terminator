@@ -18,7 +18,6 @@ Short answer : **This package helps you clean up your controller code in a way t
 <a href="https://scrutinizer-ci.com/g/imanghafoori1/laravel-terminator"><img src="https://img.shields.io/scrutinizer/g/imanghafoori1/laravel-terminator.svg?style=round-square" alt="Quality Score"></img></a>
 [![License](https://poser.pugx.org/imanghafoori/laravel-terminator/license)](https://packagist.org/packages/imanghafoori/laravel-terminator)
 [![Total Downloads](https://poser.pugx.org/imanghafoori/laravel-terminator/downloads)](https://packagist.org/packages/imanghafoori/laravel-terminator)
-[![Donate Bitcoin](https://img.shields.io/badge/donate-$1-orange.svg)](https://blockchain.com/btc/payment_request?address=1MTPGWkNfBtT8mTith1Rf91MS4kucUX4c1&amount=0.00011451&message=terminator_donation&name=Iman)
 </p>
 **Made with :heart: for every laravel "Clean Coder"**
 
@@ -313,13 +312,33 @@ We highly encourage you to take a look at the simple source code of the package 
 - https://github.com/imanghafoori1/eloquent-relativity
 
 
+-----------------
+
 #### ⭐️ Your Stars Make Us Do More ⭐️
 
 As always if you found this package useful and you want to encourage us to maintain and work on it, Please press the star button to declare your willing.
 
 
-## Donate me a Dollar
+----------------
 
-If you think my work has saved you time and money please donate me `1 dollar`, since it's better than donating 0 dollars. ;)
+### 🍌 Reward me a banana 🍌
 
-[![Donate Bitcoin](https://img.shields.io/badge/donate-$1-orange.svg)](https://blockchain.com/btc/payment_request?address=1MTPGWkNfBtT8mTith1Rf91MS4kucUX4c1&amount=0.00011451&message=terminator_donation&name=Iman)
+so that I will have energy to start the next package for you.
+
+- Dodge Coin: DJEZr6GJ4Vx37LGF3zSng711AFZzmJTouN
+- LiteCoin: ltc1q82gnjkend684c5hvprg95fnja0ktjdfrhcu4c4
+- BitCoin: bc1q53dys3jkv0h4vhl88yqhqzyujvk35x8wad7uf9
+- Ripple: rJwrb2v1TR6rAHRWwcYvNZxjDN2bYpYXhZ
+- Etherium: 0xa4898246820bbC8f677A97C2B73e6DBB9510151e
+
+--------------
+
+<p align="center">
+  
+    I believe in standardizing automobiles. I do not believe in standardizing human beings.
+    
+    "Albert Einstein"
+    
+</p>
+
+
