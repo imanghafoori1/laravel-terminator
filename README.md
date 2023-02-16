@@ -3,7 +3,7 @@
 ## :gem: "Tell, don't ask principle" for your laravel controllers
 
 
-### What this package is good for ?
+### What this package is good for?
 
 Short answer : **This package helps you clean up your controller code in a way that you have never seen before**
 
@@ -59,9 +59,9 @@ The idea is : Any class in the application should be able to send back a respons
 
 # Remember:
 
-## Controllers Are Controllers, They Are Not Responders !!!
+## Controllers Are Controllers, They Are Not Responders!!!
 
-Controllers, "control" the execution flow of your code, and send commands to other objects, telling them what to do. Their responsibility is not returning a "response" back to the client. And this is the philosophy of terminator package.
+Controllers, "control" the execution flow of your code, and send commands to other objects, telling them what to do. Their responsibility is not returning a "response" back to the client and this is the philosophy of terminator package.
 
 
 Consider the code below:
@@ -108,13 +108,12 @@ class AuthController {
 }
 
 ```
-#### Problem :
+#### Problem:
 
 With the current approach, this is as much as we can refactor at best.
 Why? because the controllers are asking for response, they are not telling what to do.
 
 We do not want many if conditions all within a single method, it makes the method hard to understand and reason about.
-
 
 ```php
 
@@ -176,14 +175,14 @@ class AuthController {
           if ($this->hasTooManyLoginAttempts($request)) {
               $this->fireLockoutEvent($request);
               $response = $this->sendLockoutResponse($request);
-              respondWith($response); // <-- look here "no return !!!"
+              respondWith($response); // <-- look here "no return!"
           }
           
          
           // 3 - handle valid Credentials
           if ($this->attemptLogin($request)) {
                $response = $this->sendLoginResponse($request);
-               respondWith($response);  // <-- look here  "no return !!!"
+               respondWith($response);  // <-- look here  "no return!"
           }
           
 
@@ -191,13 +190,13 @@ class AuthController {
           $this->incrementLoginAttempts($request);
           $response = $this->sendFailedLoginResponse($request) 
          
-          respondWith($response);  // <-- look here "no return !!!"
+          respondWith($response);  // <-- look here "no return!"
     }
 }
 
 ```
 
-Do you see how "return" keyword is now turned into regular function calls ?!
+Do you see how "return" keyword is now turned into regular function calls?!
 
 
 2 - Now that we have got rid of return statements,then the rest is easy,
@@ -241,7 +240,7 @@ respondWith()->json($someData);
 sendAndTerminate($response);
 
 
-// or use facade :
+// or use facade:
 \ImanGhafoori\Terminator\TerminatorFacade::sendAndTerminate($response);
 
 ```
@@ -261,7 +260,7 @@ TerminatorFacade::shouldRecieve('sendAndTerminate')->once()->with($someResponse)
 In fact they make your application for testable, because your tests do not fail if you change the shape of your response.
 
 
-#### How The Magic Is Even Possible, Dude ?!
+#### How The Magic Is Even Possible, Dude?!
 
 You may wonder how this magic is working behind the scenes. In short it uses nothing more than a standard laravel "renderable exception".
 
@@ -272,7 +271,7 @@ We highly encourage you to take a look at the simple source code of the package 
 ### More from the author:
 
 
-#### Laravel Hey Man
+#### Laravel HeyMan
 
 :gem: It allows to write expressive code to authorize, validate and authenticate.
 
@@ -280,7 +279,7 @@ We highly encourage you to take a look at the simple source code of the package 
 
 ------------------
 
-#### Laravel Any Pass
+#### Laravel AnyPass
 
  :gem: A minimal package that helps you login with any password on local environments.
 
@@ -297,41 +296,22 @@ We highly encourage you to take a look at the simple source code of the package 
 
 -------------------
 
-#### Laravel Master Pass
-
+#### Laravel MasterPass
 
  :gem: A simple package that lets you easily impersonate your users.
 
 - https://github.com/imanghafoori1/laravel-MasterPass
 
 
-### Eloquent Relativity
-
-:gem: It allows you to decouple your eloquent models to reach a modular structure
-
-- https://github.com/imanghafoori1/eloquent-relativity
-
-
 -----------------
 
 #### ⭐️ Your Stars Make Us Do More ⭐️
 
-As always if you found this package useful and you want to encourage us to maintain and work on it, Please press the star button to declare your willing.
-
+As always if you found this package useful and you want to encourage us to maintain and work on it, Please press the star button to declare your willingness.
 
 ----------------
 
-### 🍌 Reward me a banana 🍌
 
-so that I will have energy to start the next package for you.
-
-- Dodge Coin: DJEZr6GJ4Vx37LGF3zSng711AFZzmJTouN
-- LiteCoin: ltc1q82gnjkend684c5hvprg95fnja0ktjdfrhcu4c4
-- BitCoin: bc1q53dys3jkv0h4vhl88yqhqzyujvk35x8wad7uf9
-- Ripple: rJwrb2v1TR6rAHRWwcYvNZxjDN2bYpYXhZ
-- Etherium: 0xa4898246820bbC8f677A97C2B73e6DBB9510151e
-
---------------
 
 <p align="center">
   
