@@ -7,7 +7,7 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 class Terminator
 {
     /**
-     * @param $response
+     * @param  $response
      */
     public function respondWith($response)
     {
