@@ -10,7 +10,7 @@ class Chain
     /**
      * Chain constructor.
      *
-     * @param $args
+     * @param  $args
      */
     public function __construct($args, $method)
     {
@@ -20,6 +20,7 @@ class Chain
     public function __call($method, $args)
     {
         $this->data[] = [$args, $method];
+
         return $this;
     }
 

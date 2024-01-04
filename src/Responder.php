@@ -42,7 +42,7 @@ class Responder implements ResponseFactory
      */
     public function view($view, $data = [], $status = 200, array $headers = [])
     {
-        respondWith(response()->view($view, $data, $status, $headers ));
+        respondWith(response()->view($view, $data, $status, $headers));
     }
 
     /**
@@ -98,7 +98,7 @@ class Responder implements ResponseFactory
      */
     public function streamDownload($callback, $name = null, array $headers = [], $disposition = 'attachment')
     {
-        respondWith(response()->streamDownload($callback, $name, $headers, $disposition ));
+        respondWith(response()->streamDownload($callback, $name, $headers, $disposition));
     }
 
     /**
@@ -112,7 +112,7 @@ class Responder implements ResponseFactory
      */
     public function download($file, $name = null, array $headers = [], $disposition = 'attachment')
     {
-        respondWith(response()->download($file, $name, $headers, $disposition ));
+        respondWith(response()->download($file, $name, $headers, $disposition));
     }
 
     /**

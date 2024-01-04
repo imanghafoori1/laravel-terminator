@@ -9,7 +9,7 @@ class BasicRespondWithTest extends \Orchestra\Testbench\TestCase
 {
     public function testControllerActionIsAuthorized2()
     {
-        Route::get('/welcome', function() {
+        Route::get('/welcome', function () {
             respondWith()->redirectTo('/');
         })->name('welcome.name');
 
@@ -19,14 +19,14 @@ class BasicRespondWithTest extends \Orchestra\Testbench\TestCase
 
     public function testControllerActionIsAuthorized2q()
     {
-        Route::get('/', function() {
+        Route::get('/', function () {
         })->name('name');
 
-        Route::get('/welcome', function() {
+        Route::get('/welcome', function () {
             respondWith()->redirectToRoute('name');
         });
 
-        Route::get('/welcome2', function() {
+        Route::get('/welcome2', function () {
             respondWith(redirect()->route('name'));
         });
 
@@ -43,10 +43,10 @@ class BasicRespondWithTest extends \Orchestra\Testbench\TestCase
 
     public function testControllerActionIsAuthorized2asc()
     {
-        Route::get('/', function() {
+        Route::get('/', function () {
         })->name('name');
 
-        Route::post('/welcome', function() {
+        Route::post('/welcome', function () {
             respondWith()->redirectToRoute('name')->withErrors(['foo', 'bar']);
         });
 

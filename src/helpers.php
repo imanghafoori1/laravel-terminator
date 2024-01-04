@@ -1,4 +1,5 @@
 <?php
+
 if (! function_exists('sendAndTerminate')) {
     /**
      * Get the path to the resources folder.
@@ -17,9 +18,9 @@ if (! function_exists('respondWith')) {
      * Get the path to the resources folder.
      *
      * @param  string  $response
-     * @throws \ImanGhafoori\Terminator\TerminateException
-     *
      * @return null|\Illuminate\Contracts\Routing\ResponseFactory
+     *
+     * @throws \ImanGhafoori\Terminator\TerminateException
      */
     function respondWith($response = null)
     {
